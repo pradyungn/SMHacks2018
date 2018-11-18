@@ -2,33 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FoodSaver - main menu</title>
+    <title>FoodSaver</title>
     <link rel="icon"
           type="image/png"
           href="https://image.ibb.co/gGLeUf/favicon.png">
     <style>
+        /* top right bottom left*/
         body{
-        background-color: #41647d;
-        font-family: "Century Gothic", sans-serif;
-        color: white;
+            background-color: #41647d;
+            font-family: "Century Gothic", sans-serif;
+            color: white;
         }
-        h1 {
+        h1{
             font-family: Futura, sans-serif;
             background-color: #41647d;
             color: white;
             text-align: center;
+            top: 0px;
             padding: 20px 0px 20px 0px;
             margin: 0px;
             font-size: 50px;
         }
-        #image{
-            width: 1450px;
-            position: absolute;
-            top: 115px;
-            left: 0px;
-            z-index: -5;
-        }
-        a{
+        #account, #login{
             background-color: #41647d;
             color: white;
             padding: 10px ;
@@ -39,45 +34,99 @@
             text-decoration: none;
             font-family: "Century Gothic", sans-serif;
         }
-        h2{
+        #account{
+            right: 150px;
+        }
+        #login{
+            right: 50px;
+        }
+        #frontimage{
+            width: 1450px;
+            position: absolute;
+            top: 115px;
+            left: 0px;
+            z-index: -5;
+        }
+        spacer{
+            color: white;
             font-family: Futura, sans-serif;
-            padding: 10px 30px 10px 30px;
+            text-align: center;
+            padding: 5px 5px 5px 5px;
+            font-size: 90px;
+            line-height: 350px;
         }
-        .closeButton{
+        #fsInf{
+            color: white;
+            font-family: Futura, sans-serif;
+            text-align: center;
+            padding: 5px 5px 5px 5px;
+            font-size: 60px;
+        }
+        #info{
+            color: white;
             padding: 5px;
+            line-height: 70px;
+            font-size: 50px;
+        }
+        #info2{
+            color: white;
+            padding: 5px;
+            line-height: 55px;
+            font-size: 45px;
+            transform: translateX(10%);
+        }
+        #stat{
+            color: white;
+            padding: 0px;
+            line-height: 70px;
+            font-size: 50px;
+            transform: translateX(3%);
+        }
+        #stat1{
+            color: white;
+            padding: 0px;
+            line-height: 70px;
+            font-size: 50px;
+            transform: translateX(3%);
+        }
+        #stat2{
+            color: white;
+            padding: 0px;
+            line-height: 70px;
+            font-size: 50px;
+            transform: translateX(3%);
+        }
+        #CreateAccountH {
+            color: white;
+            font-family: Futura, sans-serif;
+            text-align: center;
+            padding: 50px 400px 50px 400px;
+            font-size: 40px;
+        }
+        #AccountInput{
+            text-align: center;
+        }
+        input{
+            padding: 10px 50px 10px 50px;
             font-size: 15px;
-            height: 30px;
-            border: 0;
-            background-color: lightseagreen;
         }
-        .food{
-            background-color: white;
-            font-size: 15px;
-            color: black;
-            width: 500px;
-            height: 30px;
+        #loginLink{
+            color: white;
+            padding: 0px 610px 0px 610px;
+            font-size: 10px;
         }
-        #plus{
-            width: 50px;
-            height: 50px;
-            padding-left: 275px;
-            font-size: 30px;
-            cursor: pointer;
-        }
-        #addNew{
-            display: none;
-            padding-left: 100px;
+        #Bottom-part{
+            padding: 100px 200px 100px 200px;
         }
         #submit{
-            background-color:#5a7d96;
-            border: 0;
-            border-radius: 0;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0px;
-            cursor: pointer;
-            padding: 5px;
+            padding:5px 15px;
+            background:#fff;
+            border:0 none;
+            cursor:pointer;
+        }
+        h5{
             font-size: 20px;
-            font-family: "Century Gothic", sans-serif;
+            font-family: sans-serif;
         }
         #logo{
             position: absolute;
@@ -86,154 +135,61 @@
             height: 90px;
             width: 90px;
         }
-        select{
-            background-color:#5a7d96;
-            border: 0;
-            border-radius: 0;
-            -webkit-appearance: none;
-            -webkit-border-radius: 0px;
-            cursor: pointer;
-            padding: 5px;
-            font-size: 20px;
-            font-family: "Century Gothic", sans-serif;
-        }
-        li{
-            margin: 10px;
-        }
-        button:hover{
-            background-color: #ff4a63;
-        }
-
     </style>
 </head>
 <body>
-
-<h1>FoodSaver</h1>
-<img id = "logo" src = "https://image.ibb.co/coZbs0/logo.png">
-<img id="image" src="https://image.ibb.co/iOWxzf/bell-pepper-carrot-carrots-952356-3.jpg">
-<a href="login.html">Go to Login</a>
-<br>
-<br>
-<br>
-<div id="Your Food">
-    <h2>Your Food</h2>
-    <div id="plus" onclick="addNew()">⊕</div>
-    <div id="addNew" >
-        <select id="foodGroup" onchange="updateSpecificFoods()">
-            <option>Dairy</option>
-            <option>Proteins</option>
-            <option>Vegetables</option>
-            <option>Fruit</option>
-            <option>Carbs</option>
-        </select>
-
-        <select id="specificFoods" >
-
-        </select>
-
-        <button id = "submit" onclick="addToList(document.getElementById('specificFoods').value)">Submit</button>
-    </div>
-    <ul id = "yourFoods">
-    </ul>
+<div id="top">
+    <h1>FoodSaver</h1>
+    <img id = "logo" src = "https://image.ibb.co/coZbs0/logo.png">
+    <a href = "#CreateAccountH" id="account">Create an account</a>
+    <a href = "login.html" id="login">Log in</a>
 </div>
+<img src="https://image.ibb.co/dgitN0/bell-pepper-carrot-carrots-952356-2.jpg" id="frontimage">
 
-<div id="Recipes">
+<h2 id="spacer"> <br> </br> <br> </br> <br> </br> <br> </br> <br> </br> <br> </br> <br> </br></h2>
 
+<div>
+    <p style="float: left; clear: left"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/White_Globe_Icon.png/768px-White_Globe_Icon.png" height="200px" width="200px"></p>
 </div>
+<h2 id="stat"> Globaly, 4 Billion tons of food are not eaten every year. <br> </br> </h2>
 
-<script>
-    function addNew(){
-        var x = document.getElementById("addNew");
-        if(x.style.display==="none"){
-            x.style.display = "block";
-        }else{
-            x.style.display = "none";
-        }
-    }
-    var dairy = ["Almond Milk", "Butter", "Buttermilk", "Coconut milk", "Cottage Cheese", "Cream", "Cream cheese", "Eggs", "Hard Cheese", "Ice Cream", "Margarine", "Milk", "Rice milk", "Soft Cheese", "Sour Cream", "Soy milk", "Whipped Cream", "Yogurt"];
-    var proteins = ["Bacon", "Beans", "Beef", "Chia", "Chicken", "Eggs", "Fish", "Flax", "Ham", "Hot Dogs", "Nuts", "Pork", "Salmon", "Tofu", "Turkey"];
-    var vegetables = ["Aspargus", "Broccoli", "Brussel Sprout", "Cabbage", "Carrots", "Cauliflower", "Celery", "Corn", "Cucumbers", "Eggplant", "Garlic", "Green Beans", "Kale", "Lettuce", "Mushrooms", "Onions", "Parsnips", "Potatoes", "PUmpkin", "Salad", "Squash", "Tomatoes", "Zucchini"];
-    var fruit = ["Apple", "Apricot", "Avocado", "BANANA", "Blueberries", "Cherries", "Coconut", "Grapes", "Lemons", "Mangoes", "Oranges", "Peaches", "pears", "Strawberries", "Tomato", "Watermelon"];
-    var carbs = ["Bread", "Cereal", "Oatmeal", "Pasta", "Popcorn", "Quinoa", "Rice", "Tortillas"];
-    var foodGroups = [dairy, proteins, vegetables, fruit, carbs];
+<div>
+    <p style="float: left; clear: left"><img src="https://vencuentro.org/wp-content/uploads/2013/05/map.png" height="140px" width="200px"></p>
+</div>
+<h2 id="stat1"> In the United States, around 40% of food is eventually thrown away. <br> </br> </h2>
+
+<div>
+    <p style="float: left; clear: left"><img src="http://www.erc-ev.de/images/keyvisuals/house-icon-white-white-house-outline-hi.png" height="200px" width="200px"></p>
+</div>
+<h2 id="stat2"> The Average household wastes around $2,200 worth of food each year in the US. <br> </br> <br> </br> </h2>
+
+<h2 id="fsInf">What is FoodSaver?</h2>
+<h2 id="info"> FoodSaver is a free service designed to help families keep track of the food they have so that they can save money and food.
+    FoodSaver will: </h2>
 
 
-    var sampleFridge = [];
+<h2 id="info2">
+    Help families keep track of what food they already have even if it is is hidden in the depths of their fridge. <br> </br>
+    Send reminders to eat food before it begins to go bad.<br> </br>
+    Suggest recipies for new meals made from the excess food in their pantry. </h2>
 
-    for(var i = 0; i <dairy.length; i++){
-        var newOption = document.createElement("option");
-        newOption.text = dairy[i];
-        document.getElementById("specificFoods").add(newOption);
-    }
+<h2 id="CreateAccountH">Create an account</h2>
+<div id="AccountInput">
+    <form action="process.php" method="POST">
+        <h5>Name</h5>
+        <input type="text">
+        <h5>Email</h5>
+        <input type="text">
+        <h5>Password</h5>
+        <input type="password">
+        <h5>Confirm password</h5>
+        <input type="password">
+        <br><br><input id="submit" type="submit">
+    </form>
+</div>
+<br>
+<a href="login.html" id="loginLink">Already have an account? Log in here</a>
 
-    function updateSpecificFoods(){
-        var selector = document.getElementById('specificFoods');
-        for (i = selector.length - 1; i >= 0; i--) {
-            selector.remove(i);
-        }
-        var j;
-        switch(document.getElementById("foodGroup").value){
-            case "Dairy":
-                j = 0;
-                break;
-            case "Proteins":
-                j = 1;
-                break;
-            case "Vegetables":
-                j = 2;
-                break;
-            case "Fruit":
-                j = 3;
-                break;
-            case "Carbs":
-                j = 4;
-                break;
-            default:
-                j = 0;
-                break;
-        }
-        for(var i = 0; i <foodGroups[j].length; i++){
-            var newOption = document.createElement("option");
-            newOption.text = foodGroups[j][i];
-            document.getElementById("specificFoods").add(newOption);
-        }
-    }
-
-    function addToList(Food){
-        sampleFridge.push(Food);
-        var ul = document.getElementById("yourFoods");
-        var li = document.createElement("li");
-        var button = document.createElement("button");
-        button.innerHTML = "X";
-        button.setAttribute("class", "closeButton");
-        button.setAttribute("id", sampleFridge.indexOf(Food, -1));
-        button.setAttribute("onclick", "deleteFood(this.id)");
-        li.appendChild(button);
-        li.appendChild(document.createTextNode(" " + Food));
-        li.setAttribute("class", "food");
-        ul.appendChild(li);
-    }
-
-    for(var i = 0; i<sampleFridge.length; i++) {
-
-        var ul = document.getElementById("yourFoods");
-        var li = document.createElement("li");
-        var button = document.createElement("button");
-        button.innerHTML = "X";
-        button.setAttribute("class", "closeButton");
-        button.setAttribute("id", i);
-        button.setAttribute("onclick", "deleteFood(this.id)");
-        li.appendChild(button);
-        li.appendChild(document.createTextNode(" " + sampleFridge[i]));
-        li.setAttribute("class", "food");
-        ul.appendChild(li);
-    }
-
-    function deleteFood(id){
-        sampleFridge.pop(id);
-        document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
-    }
-
-</script>
+<div id="Bottom-part"></div>
 </body>
-</html>
+</html></html>
