@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodSaver - main menu</title>
+    <link rel="icon"
+          type="image/png"
+          href="https://image.ibb.co/gGLeUf/favicon.png">
+    <style>
+        body{
+        background-color: #41647d;
+        font-family: "Century Gothic", sans-serif;
+        color: white;
+        }
+        h1 {
+            font-family: Futura, sans-serif;
+            background-color: #41647d;
+            color: white;
+            text-align: center;
+            padding: 20px 0px 20px 0px;
+            margin: 0px;
+            font-size: 50px;
+        }
+        #image{
+            width: 1450px;
+            position: absolute;
+            top: 115px;
+            left: 0px;
+            z-index: -5;
+        }
+        a{
+            background-color: #41647d;
+            color: white;
+            padding: 10px ;
+            border: 0px;
+            position: absolute;
+            top: 40px;
+            font-size: 20px;
+            text-decoration: none;
+            font-family: "Century Gothic", sans-serif;
+        }
+        h2{
+            font-family: Futura, sans-serif;
+            padding: 10px 30px 10px 30px;
+        }
+        .closeButton{
+            padding: 5px;
+            font-size: 15px;
+            height: 30px;
+            border: 0;
+            background-color: lightseagreen;
+        }
+        .food{
+            background-color: white;
+            font-size: 15px;
+            color: black;
+            width: 500px;
+            height: 30px;
+        }
+        #plus{
+            width: 50px;
+            height: 50px;
+            padding-left: 275px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        #addNew{
+            display: none;
+            padding-left: 100px;
+        }
+        #submit{
+            background-color:#5a7d96;
+            border: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0px;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 20px;
+            font-family: "Century Gothic", sans-serif;
+        }
+        #logo{
+            position: absolute;
+            left: 450px;
+            top: 10px;
+            height: 90px;
+            width: 90px;
+        }
+        select{
+            background-color:#5a7d96;
+            border: 0;
+            border-radius: 0;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0px;
+            cursor: pointer;
+            padding: 5px;
+            font-size: 20px;
+            font-family: "Century Gothic", sans-serif;
+        }
+        li{
+            margin: 10px;
+        }
+        button:hover{
+            background-color: #ff4a63;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>FoodSaver</h1>
+<img id = "logo" src = "https://image.ibb.co/coZbs0/logo.png">
+<img id="image" src="https://image.ibb.co/iOWxzf/bell-pepper-carrot-carrots-952356-3.jpg">
+<a href="login.html">Go to Login</a>
+<br>
+<br>
+<br>
+<div id="Your Food">
+    <h2>Your Food</h2>
+    <div id="plus" onclick="addNew()">⊕</div>
+    <div id="addNew" >
+        <select id="foodGroup" onchange="updateSpecificFoods()">
+            <option>Dairy</option>
+            <option>Proteins</option>
+            <option>Vegetables</option>
+            <option>Fruit</option>
+            <option>Carbs</option>
+        </select>
+
+        <select id="specificFoods" >
+
+        </select>
+
+        <button id = "submit" onclick="addToList(document.getElementById('specificFoods').value)">Submit</button>
+    </div>
+    <ul id = "yourFoods">
+    </ul>
+</div>
+
+<div id="Recipes">
+
+</div>
+
+<script>
+    function addNew(){
+        var x = document.getElementById("addNew");
+        if(x.style.display==="none"){
+            x.style.display = "block";
+        }else{
+            x.style.display = "none";
+        }
+    }
+    var dairy = ["Almond Milk", "Butter", "Buttermilk", "Coconut milk", "Cottage Cheese", "Cream", "Cream cheese", "Eggs", "Hard Cheese", "Ice Cream", "Margarine", "Milk", "Rice milk", "Soft Cheese", "Sour Cream", "Soy milk", "Whipped Cream", "Yogurt"];
+    var proteins = ["Bacon", "Beans", "Beef", "Chia", "Chicken", "Eggs", "Fish", "Flax", "Ham", "Hot Dogs", "Nuts", "Pork", "Salmon", "Tofu", "Turkey"];
+    var vegetables = ["Aspargus", "Broccoli", "Brussel Sprout", "Cabbage", "Carrots", "Cauliflower", "Celery", "Corn", "Cucumbers", "Eggplant", "Garlic", "Green Beans", "Kale", "Lettuce", "Mushrooms", "Onions", "Parsnips", "Potatoes", "PUmpkin", "Salad", "Squash", "Tomatoes", "Zucchini"];
+    var fruit = ["Apple", "Apricot", "Avocado", "BANANA", "Blueberries", "Cherries", "Coconut", "Grapes", "Lemons", "Mangoes", "Oranges", "Peaches", "pears", "Strawberries", "Tomato", "Watermelon"];
+    var carbs = ["Bread", "Cereal", "Oatmeal", "Pasta", "Popcorn", "Quinoa", "Rice", "Tortillas"];
+    var foodGroups = [dairy, proteins, vegetables, fruit, carbs];
+
+
+    var sampleFridge = [];
+
+    for(var i = 0; i <dairy.length; i++){
+        var newOption = document.createElement("option");
+        newOption.text = dairy[i];
+        document.getElementById("specificFoods").add(newOption);
+    }
+
+    function updateSpecificFoods(){
+        var selector = document.getElementById('specificFoods');
+        for (i = selector.length - 1; i >= 0; i--) {
+            selector.remove(i);
+        }
+        var j;
+        switch(document.getElementById("foodGroup").value){
+            case "Dairy":
+                j = 0;
+                break;
+            case "Proteins":
+                j = 1;
+                break;
+            case "Vegetables":
+                j = 2;
+                break;
+            case "Fruit":
+                j = 3;
+                break;
+            case "Carbs":
+                j = 4;
+                break;
+            default:
+                j = 0;
+                break;
+        }
+        for(var i = 0; i <foodGroups[j].length; i++){
+            var newOption = document.createElement("option");
+            newOption.text = foodGroups[j][i];
+            document.getElementById("specificFoods").add(newOption);
+        }
+    }
+
+    function addToList(Food){
+        sampleFridge.push(Food);
+        var ul = document.getElementById("yourFoods");
+        var li = document.createElement("li");
+        var button = document.createElement("button");
+        button.innerHTML = "X";
+        button.setAttribute("class", "closeButton");
+        button.setAttribute("id", sampleFridge.indexOf(Food, -1));
+        button.setAttribute("onclick", "deleteFood(this.id)");
+        li.appendChild(button);
+        li.appendChild(document.createTextNode(" " + Food));
+        li.setAttribute("class", "food");
+        ul.appendChild(li);
+    }
+
+    for(var i = 0; i<sampleFridge.length; i++) {
+
+        var ul = document.getElementById("yourFoods");
+        var li = document.createElement("li");
+        var button = document.createElement("button");
+        button.innerHTML = "X";
+        button.setAttribute("class", "closeButton");
+        button.setAttribute("id", i);
+        button.setAttribute("onclick", "deleteFood(this.id)");
+        li.appendChild(button);
+        li.appendChild(document.createTextNode(" " + sampleFridge[i]));
+        li.setAttribute("class", "food");
+        ul.appendChild(li);
+    }
+
+    function deleteFood(id){
+        sampleFridge.pop(id);
+        document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
+    }
+
+</script>
+</body>
+</html>
