@@ -1,4 +1,6 @@
 import sqlite3#imports database library
+from flask import Flask
+app = Flask(__name__)
 
 connection = sqlite3.connect('login.db')#initializes database connection
 c=connection.cursor()
