@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FoodSaver</title>
+    <link rel="icon"
+          type="image/png"
+          href="https://image.ibb.co/gGLeUf/favicon.png">
+    <style>
+        /* top right bottom left*/
+        body{
+            background-color: #41647d;
+            font-family: "Century Gothic", sans-serif;
+            color: white;
+            font-size: 20px;
+
+        }
+        h1{
+            font-family: Futura, sans-serif;
+            background-color: #41647d;
+            color: white;
+            text-align: center;
+            top: 0px;
+            padding: 20px 0px 20px 0px;
+            margin: 0px;
+            font-size: 50px;
+        }
+        /*#account, #login{
+            background-color: #41647d;
+            color: white;
+            padding: 10px ;
+            border: 0px;
+            position: absolute;
+            top: 40px;
+            font-size: 20px;
+            text-decoration: none;
+            font-family: "Century Gothic", sans-serif;
+        }
+        #account{
+            right: 150px;
+        }
+        /*#login{
+            right: 50px;
+        }*/
+        #frontimage{
+            width: 1450px;
+            position: absolute;
+            top: 115px;
+            left: 0px;
+            z-index: -5;
+        }
+        spacer{
+            color: white;
+            font-family: Futura, sans-serif;
+            text-align: center;
+            padding: 5px 5px 5px 5px;
+            font-size: 90px;
+            line-height: 350px;
+        }
+        #fsInf{
+            color: white;
+            text-align: center;
+            padding: 5px 5px 5px 5px;
+            font-size: 60px;
+        }
+        #info{
+            color: white;
+            padding: 5px;
+            line-height: 80px;
+            font-size: 30px;
+        }
+        #info2{
+            color: white;
+            padding: 5px;
+            line-height: 55px;
+            font-size: 30px;
+            transform: translateX(10%);
+        }
+        #stat{
+            color: white;
+            padding: 15px;
+            line-height: 80px;
+            font-size: 30px;
+            transform: translateX(3%);
+        }
+        #stat1{
+            color: white;
+            padding: 0px;
+            line-height: 80px;
+            font-size: 30px;
+            transform: translateX(3%);
+        }
+        #stat2{
+            color: white;
+            padding: 0px;
+            line-height: 80px;
+            font-size: 30px;
+            transform: translateX(3%);
+        }/*
+        #CreateAccountH {
+            color: white;
+            font-family: Futura, sans-serif;
+            text-align: center;
+            padding: 50px 400px 50px 400px;
+            font-size: 40px;
+        }
+        #AccountInput{
+            text-align: center;
+        }
+        input{
+            padding: 10px 50px 10px 50px;
+            font-size: 15px;
+        }
+        /*#loginLink{
+            color: white;
+            padding: 0px 610px 0px 610px;
+            font-size: 10px;
+        }*/
+        #Bottom-part{
+            padding: 100px 200px 100px 200px;
+        }
+        /*#submit{
+            padding:5px 15px;
+            background:#fff;
+            border:0 none;
+            cursor:pointer;
+        }*/
+        h5{
+            font-size: 20px;
+            font-family: sans-serif;
+        }
+        #logo{
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            height: 90px;
+            width: 90px;
+        }
+        p{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <h1>FoodSaver</h1>
+    <img id = "logo" src = "https://image.ibb.co/coZbs0/logo.png">
+    <br><br><br><br><br><br><br><br><br><br>
+
+</div>
+<img src="https://image.ibb.co/dgitN0/bell-pepper-carrot-carrots-952356-2.jpg" id="frontimage">
+
+<h2 id="spacer"> <br> <br> <br> <br> <br> <br> <br> </h2>
+
+<div>
+    <p style="float: left; clear: left"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/White_Globe_Icon.png/768px-White_Globe_Icon.png" height="50px" width="50px"></p>
+</div>
+<p id="stat"> Globally, 4 Billion tons of food are not eaten every year. <br></p>
+
+<div>
+    <p style="float: left; clear: left"><img src="https://vencuentro.org/wp-content/uploads/2013/05/map.png" height="37px" width="50px"></p>
+</div>
+<p id="stat1"> In the United States, around 40% of food is eventually thrown away. <br></p>
+
+<div>
+    <p style="float: left; clear: left"><img src="http://www.erc-ev.de/images/keyvisuals/house-icon-white-white-house-outline-hi.png" height="50px" width="50px"></p>
+</div>
+<p id="stat2"> The Average household wastes around $2,200 worth of food each year in the US. <br> <br> </p>
+
+<h2 id="fsInf">What is FoodSaver?</h2>
+<p id="info"> FoodSaver is a free service designed to help families keep track of the food they have so that they can save money and food.
+    FoodSaver will: </p>
+
+
+<ul id="info2">
+    <li>Help families keep track of what food they already have even if it is is hidden <br>in the depths of their fridge. </li>
+    <li>Send reminders to eat food before it begins to go bad.</li>
+    <li>Suggest recipies for new meals made from the excess food in their pantry. </li></ul>
+
+
+<div id="Bottom-part"></div>
+</body>
+<script>
+    function newUser(){
+        if(document.getElementById("password1").value()===document.getElementById("password2").value()) {
+            var newUserName = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password1").value;
+            var newUser = [newUserName, email, password];
+        }
+    }
+
+    //<a href="login.html" id="loginLink">Already have an account? Log in here</a>
+
+    /*<h2 id="CreateAccountH">Create an account</h2>
+    <div id="AccountInput">
+        <form>
+        <h5>Name</h5>
+        <input type="text" id="name">
+        <h5>Email</h5>
+        <input type="text" id="email">
+        <h5>Password</h5>
+        <input type="password" id="password1">
+        <h5>Confirm password</h5>
+    <input type="password" id="password2">
+        <br><br><input id="submit" type="submit" onclick="newUser()">
+        </form>
+        </div>
+        <br>*/
+    /*<a href = "#CreateAccountH" id="account">Create an account</a>
+    <a href = "login.html" id="login">Log in</a>*/
+
+</script>
+</html>
