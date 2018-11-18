@@ -28,18 +28,6 @@
             left: 0px;
             z-index: -5;
         }
-        #login{
-            background-color: #41647d;
-            color: white;
-            padding: 10px ;
-            border: 0px;
-            position: absolute;
-            top: 40px;
-            right: 10px;
-            font-size: 20px;
-            text-decoration: none;
-            font-family: "Century Gothic", sans-serif;
-        }
         h2{
             font-family: Futura, sans-serif;
             padding: 10px 30px 10px 30px;
@@ -130,7 +118,7 @@
             position:absolute;
             left: 100px;
             top: 20px;
-            color: #A0DAFC
+            color: #5a7d96;
         }
 
     </style>
@@ -140,7 +128,6 @@
 <h1>FoodSaver</h1>
 <img id = "logo" src = "https://image.ibb.co/coZbs0/logo.png">
 <img id="image" src="https://image.ibb.co/iOWxzf/bell-pepper-carrot-carrots-952356-3.jpg">
-<a href="login.html" id="login">Go to Login</a>
 <br>
 <br>
 <br>
@@ -196,7 +183,7 @@
 
     var carbsInFridge = [];
 
-    var sampleFridge = ["Bread", "Cereal", "Oatmeal", "Pasta"];
+    var sampleFridge = ["Bread", "Aspargus","Cereal", "Oatmeal", "Pasta"];
 
     for(var i = 0; i <dairy.length; i++){
         var newOption = document.createElement("option");
@@ -290,6 +277,7 @@
         }
         document.getElementById(id).parentNode.parentNode.removeChild(document.getElementById(id).parentNode);
     }
+
 
 </script>
 </body>
